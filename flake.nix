@@ -1,5 +1,8 @@
 {
-  outputs = { self, nixpkgs, ... }:
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+  };
+  outputs = inputs@{ self, nixpkgs, ... }:
     let
       pkgs = import nixpkgs { system = "x86_64-linux"; };
     in
@@ -10,5 +13,7 @@
         enableGraphical = true;
         juliaVersion = "1.10.1";
       };
+
+      fhsModule = import ./fhs.nix;
     };
 }
