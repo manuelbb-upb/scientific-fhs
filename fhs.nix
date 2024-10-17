@@ -15,6 +15,7 @@
 , commandScript ? "bash"
 , texliveScheme ? pkgs.texlive.combined.scheme-minimal
 , extraOutputsToInstall ? ["man" "dev"]
+, extraPackages ? [ ]
 }:
 
 with lib;
@@ -43,7 +44,9 @@ let
       texliveScheme
       ncurses
       poetry
-    ] ++ lib.optional enableNode pkgs.nodejs;
+    ] ++ 
+      extraPackages ++ 
+      lib.optional enableNode pkgs.nodejs;
 
   graphicalPackages = pkgs:
     with pkgs; [
