@@ -15,7 +15,8 @@
 , commandScript ? "bash"
 , texliveScheme ? pkgs.texlive.combined.scheme-minimal
 , extraOutputsToInstall ? ["man" "dev"]
-, extraPackages ? [ ]
+, extraPackages ? [ ],
+, enableDevShell ? true,
 }:
 
 with lib;
@@ -123,7 +124,6 @@ let
       linuxPackages.nvidia_x11
     ];
 
-
   quartoPackages = pkgs:
   let
     quarto = pkgs.callPackage ./quarto.nix {
@@ -192,7 +192,7 @@ let
   '';
 in
 pkgs.buildFHSUserEnv {
-  inherit multiPkgs extraOutputsToInstall;
+  inherit multiPkgs extraOutputsToInstall enableDevShell;
   targetPkgs = targetPkgs;
   name = commandName; # Name used to start this UserEnv
   runScript = commandScript;
