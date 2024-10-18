@@ -15,7 +15,7 @@
 , commandScript ? "bash"
 , texliveScheme ? pkgs.texlive.combined.scheme-minimal
 , extraOutputsToInstall ? ["man" "dev"]
-, extraPackages ? [ ],
+, extraPackages ? [ ]
 , enableDevShell ? true,
 }:
 
