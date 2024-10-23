@@ -1,7 +1,7 @@
 { lib
 , pkgs
 , enableJulia ? true
-, juliaVersion ? "1.10.4"
+, juliaVersion ? "1.11.1"
 , enableConda ? false
 , enablePython ? false
 , enableQuarto ? true
@@ -74,7 +74,7 @@ let
       libcap
       libdrm
       libgnome-keyring3
-      libgpgerror
+      libgpg-error
       libnotify
       libpng
       libsecret
