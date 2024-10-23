@@ -1,7 +1,7 @@
 { lib
 , pkgs
 , enableJulia ? true
-, juliaVersion ? "1.10.1"
+, juliaVersion ? "1.10.4"
 , enableConda ? false
 , enablePython ? false
 , enableQuarto ? true
@@ -50,7 +50,7 @@ let
 
   graphicalPackages = pkgs:
     with pkgs; [
-      alsaLib
+      alsa-lib
       at-spi2-atk
       at-spi2-core
       atk
